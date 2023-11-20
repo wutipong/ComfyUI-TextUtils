@@ -1,21 +1,21 @@
-import textutils
+from .textutils import create_n_token_string
 
 
 class CreateNTokenStringNode:
     @classmethod
     def INPUT_TYPES(cls):
         return {
-            "required": { 
-                "text" : ("TEXT", ""),
-                "delim": ("TEXT", ""),
-                "n": ("INT", 0) 
+            "required": {
+                "text": ("STRING", {"default": ""}),
+                "separator": ("STRING", {"default": "/"}),
+                "n": ("INT", {"default": 0, "min": -100, "max": 100, "step": 1})
             },
         }
 
-    RETURN_TYPES = ("Text",)
+    RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("TEXT",)
-    FUNCTION = "create_n_token_string"
-    CATEGORY = "wutipong"
+    FUNCTION = "perform_create_n_token_string"
+    CATEGORY = "text utility"
 
-    def create_n_token_string(self, text, delim, n):
-        return (textutils.create_n_token_string(text, delim, n),)
+    def perform_create_n_token_string(self, text, delim, n):
+        return (create_n_token_string(text, delim, n),)

@@ -1,11 +1,12 @@
 def create_n_token_string(str, delim, n):
     parts = str.split(delim)
 
-    if n > 0 :
+    if n > 0:
         return delim.join(parts[0: n])
-    else :
+    else:
         l = len(parts)
         start = l + n
-        if start < 0: start = 0
+        if start < 0:
+            start = 0
 
         return delim.join(parts[start: l])
