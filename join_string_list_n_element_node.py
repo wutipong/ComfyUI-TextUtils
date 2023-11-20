@@ -5,7 +5,7 @@ class JoinStringListNElementNode:
             "required": {
                 "texts": ("STRING", {"forceInput": True}),
                 "separator": ("STRING", {"default": "/"}),
-                "n": ("INT", {"default": 0, "min": 0, "max": 10000, "step": 1}),
+                "n": ("INT", {"default": 1, "min": 0, "max": 10000, "step": 1}),
                 "start_from": (["front", "back"],)
             },
         }
@@ -20,12 +20,13 @@ class JoinStringListNElementNode:
         n = n[0]
         start_from = start_from[0]
 
-        if start_from == "front":
-            return (separator.join(texts[0: n]), )
-        else:
-            l = len(texts)
-            start = l - n
+        start = 0
+        end = n
+
+        if start_from == "back":
+            end = len(texts)
+            start = end - n
             if start < 0:
                 start = 0
 
-            return (separator.join(texts[start: l]), )
+        return (separator.join(texts[start: end]), )
