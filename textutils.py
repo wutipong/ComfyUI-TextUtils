@@ -1,4 +1,4 @@
-def create_n_tokens(str, delim, n):
+def create_n_token_string(str, delim, n):
     parts = str.split(delim)
 
     if n > 0 :
