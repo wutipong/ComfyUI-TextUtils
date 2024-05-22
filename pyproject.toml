@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-textutils"
+description = "Nodes:Create N-Token String"
+version = "1.0.0"
+license = "LICENSE"
+
+[project.urls]
+Repository = "https://github.com/wutipong/ComfyUI-TextUtils"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-TextUtils"
+Icon = ""
